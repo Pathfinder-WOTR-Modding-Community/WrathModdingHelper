@@ -1,0 +1,51 @@
+﻿<Window x:Class="WrathModdingHelper.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WrathModdingHelper"
+        mc:Ignorable="d"
+        FontSize="28"
+         DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        Title="MainWindow" Height="735" Width="1489">
+    <Window.Resources>
+        <ImageSource x:Key="error">pack://application:,,,/error.png</ImageSource>
+    </Window.Resources>
+    <Grid x:Name="Root" Margin="12">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="2" Foreground="DarkOrange" Text="{Binding CannotProgressReason}"></TextBlock>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Button Name="GoPrev" IsEnabled="{Binding HasPrev}" Grid.Column="0" Click="OnPrevClicked">Prev</Button>
+            <Button Name="GoNext" IsEnabled="{Binding HasNext}" Grid.Column="1" Click="OnNextClicked">Next</Button>
+
+        </Grid>
+        <TextBlock Grid.Row="0" Text="{Binding ContentTitle.Value}" TextAlignment="Center" VerticalAlignment="Center"></TextBlock>
+        <DockPanel Grid.Row="1" Name="Frame">
+            <Grid x:Name="Error_VS" Margin="100 100 100 100" Visibility="Hidden">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Image Source="{StaticResource error}"></Image>
+
+                <TextBlock FontSize="32" TextAlignment="Center" Grid.Row="1"> Could not find Visual studio</TextBlock>
+                <TextBlock FontSize="32" TextAlignment="Center" Grid.Row="2">
+                <Hyperlink NavigateUri="https://visualstudio.microsoft.com/vs/community/" Click="OnHyperlinkClicked">
+                    Click here to install 
+                </Hyperlink>
+                </TextBlock>
+            </Grid>
+        </DockPanel>
+    </Grid>
+</Window>

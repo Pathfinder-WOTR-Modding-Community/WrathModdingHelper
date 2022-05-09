@@ -1,0 +1,16 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+
+{
+  "Id": "<#= Stuff.ModName #>",
+  "DisplayName": "<#= Stuff.ModName #>",
+  "Author": "<#= Stuff.Author #>",
+  "Version": "0.0.1",
+  "ManagerVersion": "0.21.3",
+  "Requirements": [],
+  "AssemblyName": "<#= Stuff.ModName #>.dll",
+  "EntryMethod": "<#= Stuff.ModName #>.Main.Load"
+}

@@ -1,0 +1,80 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="error.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Ookii.Dialogs.Wpf" Version="5.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="error.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Libraries\TTTCore\ModContext.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ModContext.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\ModletExample.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ModletExample.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\csproj.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>csproj.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\Info.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Info.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\Main.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Main.cs</LastGenOutput>
+    </None>
+    <None Update="vswhere.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Libraries\TTTCore\ModContext.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ModContext.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\ModletExample.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ModletExample.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\csproj.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>csproj.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\Info.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Info.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\Main.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Main.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>
